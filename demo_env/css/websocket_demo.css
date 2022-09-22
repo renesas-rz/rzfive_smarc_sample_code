@@ -1,0 +1,184 @@
+/*
+ * websocket_demo.css
+ *
+ * Copyright (c) 2019 Renesas Electronics Corp.
+ * This software is released under the MIT License,
+ * see https://opensource.org/licenses/MIT
+ */
+
+tr.at { background-color: #CCCCFF; border-color: #c0c0c0; }
+body{
+    text-align: center;
+    margin: 0px;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+    font-family: DIN Light, Noto, sans-serif;
+    overflow: hidden;
+}
+body {
+    background-color: #525252;
+    font-size: 100%;
+    color: #FFF;
+}
+img {
+    vertical-align: middle;
+}
+summary {
+    text-align: left;
+}
+ul {
+    padding-left: 20px;
+}
+ul p {
+    font-size: 30px;
+}
+.detail {
+    background-image: linear-gradient(#006A92, #003959);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container {
+    position: relative;
+}
+.container .detail_header {
+    display: flex;
+    padding-bottom: 0px;
+}
+.container_detail {
+    width:50%;
+    height: 50%;
+}
+.detail_header {
+    padding-top: 1.0%;
+}
+.detail_header>* {
+    flex: 1 0 auto;
+}
+.chart_area {
+    margin: 0 auto;
+    position: relative;
+    width: 800px;
+    height: auto;
+}
+.led_area {
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 4vh auto;
+}
+.container .chart_area .chart_area_content {
+    background-size: 680px 248px;
+}
+.temp_info {
+    color: white;
+    font-size: 55px;
+    text-align: center;
+}
+.temp_info span {
+    font-size: 40px;
+}
+.temp_info img {
+    width: 2.5vh;
+    height: auto;
+    vertical-align: top;
+}
+.hum_info {
+    color: white;
+    font-size: 55px;
+    text-align: center;
+}
+.hum_info span {
+    font-size: 40px;
+}
+.hum_info img {
+    width: 2.5vh;
+    height: auto;
+    vertical-align: top;
+}
+.light_info {
+    color: white;
+    font-size: 55px;
+    text-align: center;
+}
+.light_info span {
+    font-size: 40px;
+}
+.light_info img {
+    width: 3.5vh;
+    height: auto;
+    vertical-align: top;
+}
+.led_info {
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+.led_info img {
+    width: 30vh;
+    height: auto;
+    vertical-align: top;
+}
+#title{
+    font-size:50px;
+}
+#tempcell{
+    font-size:4vh;
+}
+#humcell{
+    font-size:4vh;
+}
+#lightcell{
+    font-size:4vh;
+}
+#currentproximityvalue{
+    display: block;
+    text-align: left;
+    padding-left: 30px;
+}
+#proximity_threshold{
+    width: 22%;
+}
+#subtitle1{
+    font-size:30px;
+}
+#subtitle2{
+    font-size:30px;
+}
+#summary-layer {
+    padding-left:20px;
+}
+#temp_yaxes_max {
+    width: 70%;
+}
+#temp_yaxes_min {
+    width: 70%;
+}
+#light_yaxes_max {
+    width: 70%;
+}
+#light_yaxes_min {
+    width: 70%;
+}
+#settings{
+    position: fixed;
+    z-index: 20;
+    top: 26px;
+    left: -100%;
+    width: 20%;
+    height: 100vh;
+    background-color: rgba(160, 160, 160, 0.85);
+    border-left: solid 1px #ddd;
+    transition: all 0.25s ease-out;
+}
+#settings.settings-open {
+    left: 0;
+}
+#settings-bar {
+    position: absolute;
+    z-index: 100;
+}

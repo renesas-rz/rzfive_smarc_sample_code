@@ -1,0 +1,88 @@
+<！--
+ * index.html
+ *
+ * Copyright (c) 2019 Renesas Electronics Corp. 
+ * This software is released under the MIT License,
+ * see https://opensource.org/licenses/MIT
+ -->
+
+<!doctype html>
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>WebSocket Demo</title>
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/websocket_demo.css">
+  </head>
+  
+  <body>
+    <div id="settings-bar">
+      <a href="#" class="settings-event"> <img src="img/settings_open.png" id="settings-icon" alt=""></a>
+    </div>
+    <nav id="settings">
+      <ul>
+      <p>Settings</p>
+        <details open>
+          <summary>yAxes</summary>
+          <details open>
+            <summary id="summary-layer">Temperature [℃]</summary>
+              <label>Max : <input type="number" id="temp_yaxes_max" value="40"></label>
+              <label>Min : <input type="number" id="temp_yaxes_min" value="0"></label>
+          </details>
+          <details open>
+            <summary id="summary-layer">Ambient Light [lx]</summary>
+              <label>Max : <input type="number" id="light_yaxes_max" value="5000"></label>
+              <label>Min : <input type="number" id="light_yaxes_min" value="0"></label>
+          </details>
+          <details open>
+            <summary id="summary-layer">Proximity</summary>
+              <label>Threshold to turn on LED : <input type="number" id="proximity_threshold" value="30"></label>
+              <label id="currentproximityvalue">Current Value : <span id="proximitycell"></span></label>
+          </details>
+        </details>
+      </ul>
+    </nav>
+
+    <div class="detail">
+      <div class="container_detail">
+        <header class="detail_header">
+          <div class="temp_info"><img src="img/icon_temp.png"  alt=""><span id="tempcell"></span></div>
+        </header>
+        <div class="chart_area">
+            <canvas id="temp_canvas"></canvas>
+        </div>
+      </div>
+      <div class="container_detail">
+        <header class="detail_header">
+          <div class="hum_info"><img src="img/icon_hum.png"  alt=""><span id="humcell"></span></div>
+        </header>
+        <div class="chart_area">
+          <canvas id="hum_canvas"></canvas>
+        </div>
+      </div>
+      <div class="container_detail">
+        <header class="detail_header">
+          <div class="light_info"><img src="img/icon_illumi.png"  alt=""><span id="lightcell"></span></div>
+        </header>
+        <div class="chart_area">
+          <canvas class="canvas" id="light_canvas"></canvas>
+        </div>
+      </div>
+      <div class="container_detail">
+        <div class="led_area">
+          <header class="detail_header">
+            <div class="led_info"><img src="img/icon_led-off.png" id="led-icon" alt=""></div>
+          </header>
+        </div>
+      </div>
+    </div>
+
+    <script src="./libs/jquery-3.4.1.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script src="./libs/Chart.min.js"></script>
+    <script src="./libs/moment.min.js"></script>
+    <script src="./js/websocket_demo.js"></script>
+  </body>
+
+</html>

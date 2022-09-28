@@ -25,11 +25,13 @@ static int measurement_request(int fd) {
 	struct i2c_msg msg[1];
 	struct i2c_rdwr_ioctl_data packets;
 	int ret = 0;
-
+	uint32_t dummy = 0;
+	
 	msg[0].addr = HS3001_SLAVE_ADDRESS;
 	msg[0].flags = 0;
-	msg[0].len = 0;
-
+	msg[0].len = sizeof(uint32_t);
+	msg[0].buf = (unsigned char*)&dummy;
+	
 	packets.msgs = msg;
 	packets.nmsgs = 1;
 

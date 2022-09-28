@@ -12,10 +12,10 @@
 
 #include "pmodled-control.h"
 
-#define GPIO_LD0 268
-#define GPIO_LD1 128
-#define GPIO_LD2 131
-#define GPIO_LD3 132
+#define GPIO_LD0 508
+#define GPIO_LD1 368
+#define GPIO_LD2 371
+#define GPIO_LD3 372
 
 #define PIN_GPIO_LD0 "P18_4"
 #define PIN_GPIO_LD1 "P1_0"

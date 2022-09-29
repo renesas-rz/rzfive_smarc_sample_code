@@ -162,8 +162,8 @@ This chapter describes the procedures for running Demo Application.
    
    ```bash
    $ cd IoT_Edge_demo_with_multiple_sensors_and_LED
-   $ mkdir ./demo_env/apps/source/build
-   $ cd ./demo_env/apps/source/build
+   $ mkdir ./demo_env/apps/sources/build
+   $ cd ./demo_env/apps/sources/build
    $ cmake ..
    $ make
    ```
@@ -182,7 +182,7 @@ This chapter describes the procedures for running Demo Application.
    ![Board_using_ports](./pictures/Board_using_ports.PNG)
 
 ### 3.2.1. Write bootloader to board
-   - Please refer [RZ/G2L Group, RZ/V2L, and RZ/Five SMARC EVKStart-up Guide](https://www.renesas.com/jp/ja/document/mat/rzg2l-group-rzv2l-smarc-evk-start-guide-rev104)  (2.2 Startup Procedure to 2.4 Writing Bootloader).
+   - Please refer [RZ/G2L Group, RZ/V2L, and RZ/Five SMARC EVKStart-up Guide](https://www.renesas.com/jp/ja/document/mas/board-start-guide-rzg2l-rzg2lc-rzg2ul-rzv2l-rzfive-smarc-evk-rev102?language=en&r=1467981)  (1.2 Startup Procedure to 1.4 Writing Bootloader).
   
    - Required files
       - RZ/Five

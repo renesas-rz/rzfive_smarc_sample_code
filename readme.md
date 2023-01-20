@@ -29,12 +29,6 @@ The following is a list of items required to run this Demo Application.
     - RZ/Five SMARC Module Board 
     - RZ SMARC Series Carrier Board 
 
-**The BSP versions of each board supported by this Demo Application are as follows**
-
-   | Board name | Supported Version | 
-   | ---------- | --------------------- | 
-   | RZ/Five    | RZ/Five Board Support Package V1.0-update1   | 
-   | RZ/G2UL    | RZ/G Verified Linux Package V3.0.0-update2   | 
 
 ### Sensors
 - [US082-HS3001EVZ (Relative Humidity Sensor Pmod™ Board (Renesas Quick-Connect IoT))](https://www.renesas.com/us/en/products/sensor-products/humidity-sensors/us082-hs3001evz-relative-humidity-sensor-pmod-board-renesas-quick-connect-iot)
@@ -55,94 +49,75 @@ The following is a list of items required to run this Demo Application.
   
 # 2. How to build BSP
 
-This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to boot up with the Board Support Package of RZ/Five and RZ/G2UL.
+This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to boot up.
 
-## RZ/Five
+  Please refer [official RZ/G2 series Yocto Poky BSP based on the CIP kernel(tag:BSP-3.0.2) ](https://github.com/renesas-rz/meta-renesas/tree/BSP-3.0.2) to build "core-image-minimal".
+
 
 1. Build Rootfs and Kernel
-
-   Please refer [RZ/Five Board Support Package Version 1.0-update1](https://www.renesas.com/cn/zh/document/mas/release-note-rzfive-board-support-package-v10-update1#page=5 "RZ/Five Board Support Package Version 1.0-update1(3.1 Building images to run on the board)") (3.1 Building images to run on the board) to build core-image-minial.
+   Please refer "Build Instructions".
 
    Just before building the BSP, run the following command to add the packages required to run the demo app to `${WORK}/build/conf/local.conf`.
 
     ```
     $ echo IMAGE_INSTALL_append = \"libwebsockets jansson\" >> conf/local.conf
     ```  
-    
+   note: proprietary graphics and multimedia drivers are not required.
+
 2. Build toolchain
+   Please refer "Build Instructions for SDK". 
 
-   Please refer [RZ/Five Board Support Package Version 1.0-update1](https://www.renesas.com/cn/zh/document/mas/release-note-rzfive-board-support-package-v10-update1#page=7 "RZ/Five Board Support Package Version 1.0-update1(3.2 Building SDK)") (3.2 Building SDK) to build the SDK.
+   The resulting SDK installer will be located in `build/tmp/deploy/sdk/`.  
 
-   The resulting SDK installer will be located in `build/tmp-glibc/deploy/sdk/`.  
-     
+   [RZ/FIVE] poky-glibc-x86_64-core-image-minimal-riscv64-smarc-rzfive-toolchain-3.1.17.sh  
+   [RZ/G2UL] poky-glibc-x86_64-core-image-minimal-aarch64-smarc-rzg2ul-toolchain-3.1.17.sh
+
 3. Install toolchain
 
    To run the installer, you would execute the following command:
-
+   
+   [RZ/FIVE]
    ```
-   $ sudo sh oecore-x86_64-riscv64-toolchain-nodistro.0.sh
+   $ sudo sh poky-glibc-x86_64-core-image-minimal-riscv64-smarc-rzfive-toolchain-3.1.17.sh 
 
-   OpenEmbedded SDK installer version nodistro.0
+   Poky (Yocto Project Reference Distro) SDK installer version 3.1.17
    =============================================
-   Enter target directory for SDK (default: /usr/local/oecore-x86_64): 
-   The directory "/usr/local/oecore-x86_64" already contains a SDK for this architecture.
-   If you continue, existing files will be overwritten! Proceed [y/N]? y
+   Enter target directory for SDK (default: /opt/poky/3.1.17):
+   You are about to install the SDK to "/opt/poky/3.1.17". Proceed [Y/n]? y
    Extracting SDK...................................................................done
    Setting it up...done
    SDK has been successfully set up and is ready to be used.
    Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
-   $ . /usr/local/oecore-x86_64/environment-setup-riscv64-oe-linux
-   ```
-  
-4. Setup toolchain
-   
-   ```
-   $ source /usr/local/oecore-x86_64/environment-setup-riscv64-oe-linux
+    $ . /opt/poky/3.1.17/environment-setup-riscv64-poky-linux
    ```
 
-## RZ/G2UL
-
-1. Build Rootfs and Kernel
-
-   Please refer [Release Note for RZ/G Verified Linux Package V3.0.0-update2](https://www.renesas.com/us/en/document/mas/release-note-rzg-verified-linux-package-v300-update2#page=7 "Release Note for RZ/G Verified Linux Package V3.0.0-update2 (3.1 Building images to run on the board)") (3.1 Building images to run on the board) to build core-image-minial.
-
-
-   Just before building the BSP, run the following command to add the packages required to run the demo app to `${WORK}/build/conf/local.conf`
-
-    ```
-    $ echo IMAGE_INSTALL_append = \"libwebsockets jansson\" >> conf/local.conf
-    ```
-
-2. Build toolchain
-
-   Please refer [Release Note for RZ/G Verified Linux Package V3.0.0-update2](https://www.renesas.com/us/en/document/mas/release-note-rzg-verified-linux-package-v300-update2#page=14 "Release Note for RZ/G Verified Linux Package V3.0.0-update2 (3.2 Building SDK)") (3.2 Building SDK) to build the SDK.
-
-   The resulting SDK installer will be located in `build/tmp/deploy/sdk/`.
-
-3. Install toolchain
-
-   To run the installer, you would execute the following command:
-
+   [RZ/G2UL]
    ```
-   $ sudo sh poky-glibc-x86_64-core-image-minimal-aarch64-smarc-rzg2ul-toolchain-3.1.14.sh
+   $ sudo sh poky-glibc-x86_64-core-image-minimal-aarch64-smarc-rzg2ul-toolchain-3.1.17.sh
 
-   Poky (Yocto Project Reference Distro) SDK installer version 3.1.14
+   Poky (Yocto Project Reference Distro) SDK installer version 3.1.17
    ==================================================================
-   Enter target directory for SDK (default: /opt/poky/3.1.14): 
-   The directory "/opt/poky/3.1.14" already contains a SDK for this architecture.
-   If you continue, existing files will be overwritten! Proceed [y/N]? y
-   Extracting SDK..........................................................................done
+   Enter target directory for SDK (default: /opt/poky/3.1.17):
+   You are about to install the SDK to "/opt/poky/3.1.17". Proceed [Y/n]? y
+   Extracting SDK...................................................................done
    Setting it up...done
    SDK has been successfully set up and is ready to be used.
    Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
-   $ . /opt/poky/3.1.14/environment-setup-aarch64-poky-linux
-   $ . /opt/poky/3.1.14/environment-setup-armv7vet2hf-neon-vfpv4-pokymllib32-linux-gnueabi
-   ```   
-
-4. Setup toolchain
-   
+    $ . /opt/poky/3.1.17/environment-setup-aarch64-poky-linux
    ```
-   $ source /opt/poky/3.1.14/environment-setup-aarch64-poky-linux
+
+
+
+4. Setup toolchain  
+   [RZ/FIVE]
+
+   ```
+   $ source /opt/poky/3.1.17/environment-setup-riscv64-poky-linux
+   ```
+
+   [RZ/G2UL]
+   ```
+   $ source /opt/poky/3.1.17/environment-setup-aarch64-poky-linux
    ```
 
 # 3. WebSocket Demonstration
@@ -200,16 +175,18 @@ This chapter describes the procedures for running Demo Application.
    - Required files
       - RZ/Five
          - core-image-minimal-smarc-rzfive.tar.bz2
-         - Image
-         - r9a07g043f01-smarc.dtb
+         - Image-smarc-rzfive.bin
+         - Image-r9a07g043f01-smarc.dtb
       - RZ/G2UL
          - core-image-minimal-smarc-rzg2ul.tar.bz2
-         - Image
-         - r9a07g043u11-smarc.dtb
-         
-   **Remarks: Please change `/dev/sdX` to match your environment**
+         - Image-smarc-rzg2ul.bin
+         - Image-r9a07g043u11-smarc.dtb
 
-   1. Format SDCard
+
+
+   1. Format SDCard  
+
+   **Remarks: Please change `/dev/sdX` to match your environment**  
 
       ```bash
       $ sudo umount /dev/sdX
@@ -245,11 +222,12 @@ This chapter describes the procedures for running Demo Application.
          ```
 
    1. Write kernel Image
+   **Remarks: For RZ/G2UL, please change the file name for RZ/FIVE or RZ/G2UL.
 
       ```bash
       $ sudo mount /dev/sdX1 /mnt
-      $ sudo cp Image /mnt
-      $ sudo cp r9a07g043XXX-smarc.dtb /mnt
+      $ sudo cp Image-smarc-XXXX.bin /mnt
+      $ sudo cp Image-r9a07g043XXX-smarc.dtb /mnt
       $ sync
       $ sudo umount /mnt
       ```
@@ -293,7 +271,7 @@ There are two ways to deploy Demo Applications on Board, so choose the operation
 
 1. Connect LED(Pmod LED) to `PMOD0`
 
-   ![Connect_Pmod-LED](./pictures/Connect_Pmod-LED.png)
+   ![Connect_Pmod-LED](./pictures/Connect_Pmod-LED.PNG)
 
 ### 3.2.5. SD Boot
 
@@ -307,17 +285,24 @@ There are two ways to deploy Demo Applications on Board, so choose the operation
 
 1. Apply the following settings to U-boot and boot the board
 
+   [RZ/FIVE]
    ```
    => setenv bootargs 'root=/dev/mmcblk1p2 rootwait'
-   => setenv bootcmd 'mmc dev 1;fatload mmc 1:1 0x48080000 Image;
-   fatload mmc 1:1 0x48000000 r9a07g043f01-smarc.dtb(*Note); booti 0x48080000 - 0x48000000'
+   => setenv bootcmd 'mmc dev 1;fatload mmc 1:1 0x48080000 Image-smarc-rzfive.bin; fatload mmc 1:1 0x48000000 Image-r9a07g043f01-smarc.dtb; booti 0x48080000 - 0x48000000'
+   ```
 
+   [RZ/G2UL]
+   ```
+   => setenv bootargs 'root=/dev/mmcblk1p2 rootwait'
+   => setenv bootcmd 'mmc dev 1;fatload mmc 1:1 0x48080000 Image-smarc-rzg2ul.bin; fatload mmc 1:1 0x48000000 Image-r9a07g043u11-smarc.dtb; booti 0x48080000 - 0x48000000'
+   ```
+
+   Save the U-boot settings.
+   ```
    => saveenv
    Saving Environment to MMC... Writing to MMC(0)... OK
 
    => run bootcmd
-
-   (*Note) for RZ/G2UL:r9a07g043u11-smarc.dtb
    ```
   
 
@@ -375,7 +360,7 @@ To make a P2P connection between board and a Windows 10 PC to run the Demo Appli
    # ip a
    ```
 
-   ![check_ipaddress](./pictures/Check_ipaddress.png)
+   ![check_ipaddress](./pictures/check_ipaddress.png)
 
 ## 3.4 Launch Demo Application 
 
@@ -464,7 +449,7 @@ To make a P2P connection between board and a Windows 10 PC to run the Demo Appli
 
 - The setting items are linked to the vertical axis of the graph as shown in the figure below
 
-  ![graph_yaxes_settings](./pictures/Graph_yaxes_settings.PNG)
+  ![graph_yaxes_settings](./pictures/graph_yaxes_settings.PNG)
 
 #### Threshold to turn on LED settings
 

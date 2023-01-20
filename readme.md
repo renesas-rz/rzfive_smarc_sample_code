@@ -188,7 +188,7 @@ This chapter describes the procedures for running Demo Application.
  
   **Remarks: Please change `/dev/sdX` to match your environment**
 
-      ```bash
+  ```bash
       $ sudo umount /dev/sdX
       $ sudo fdisk /dev/sdX
       d
@@ -203,7 +203,7 @@ This chapter describes the procedures for running Demo Application.
       Enter
       Enter
       w
-      ```
+  ```
 
  ![Format_SD](./pictures/Format_SD.PNG)
 

@@ -183,9 +183,10 @@ This chapter describes the procedures for running Demo Application.
          - Image-r9a07g043u11-smarc.dtb
 
 
-  **Remarks: Please change `/dev/sdX` to match your environment**
-
+ 
    1. Format SDCard
+ 
+  **Remarks: Please change `/dev/sdX` to match your environment**
 
       ```bash
       $ sudo umount /dev/sdX
@@ -204,7 +205,7 @@ This chapter describes the procedures for running Demo Application.
       w
       ```
 
-      ![Format_SD](./pictures/Format_SD.PNG)
+ ![Format_SD](./pictures/Format_SD.PNG)
 
    1. Create a file system
 

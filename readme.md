@@ -205,7 +205,7 @@ This chapter describes the procedures for running Demo Application.
       w
       ```
 
-      ![Format_SD](./pictures/Format_SD.PNG)
+     ![Format_SD](./pictures/Format_SD.PNG)
 
    1. Create a file system
 

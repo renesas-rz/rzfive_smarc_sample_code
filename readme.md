@@ -88,7 +88,6 @@ This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to
    Setting it up...done
    SDK has been successfully set up and is ready to be used.
    Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
-    $ . /opt/poky/3.1.17/environment-setup-riscv64-poky-linux
    ```
 
    [RZ/G2UL]
@@ -103,7 +102,6 @@ This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to
    Setting it up...done
    SDK has been successfully set up and is ready to be used.
    Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
-    $ . /opt/poky/3.1.17/environment-setup-aarch64-poky-linux
    ```
 
 
@@ -126,19 +124,17 @@ This chapter describes the procedures for running Demo Application.
 
 ## 3.1 How to build Demo Application
 
-1. Copy the `IoT_Edge_demo_with_multiple_sensors_and_LED` folder on your Linux PC
+1. Copy the `demo_env` folder on your Linux PC
 
    ```bash
-   IoT_Edge_demo_with_multiple_sensors_and_LED
-   └─ demo_env
+   $ git clone https://github.com/renesas-rz/rzfive_smarc_sample_code
    ```
 
 1. Build
    
    ```bash
-   $ cd IoT_Edge_demo_with_multiple_sensors_and_LED
-   $ mkdir ./demo_env/apps/sources/build
-   $ cd ./demo_env/apps/sources/build
+   $ mkdir rzfive_smarc_sample_code/demo_env/apps/sources/build
+   $ cd rzfive_smarc_sample_code/demo_env/apps/sources/build
    $ cmake ..
    $ make
    ```

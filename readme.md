@@ -51,11 +51,19 @@ The following is a list of items required to run this Demo Application.
 
 This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to boot up.
 
-  Please refer [official RZ/G2 series Yocto Poky BSP based on the CIP kernel(tag:BSP-3.0.2) ](https://github.com/renesas-rz/meta-renesas/tree/BSP-3.0.2) to build "core-image-minimal".
+The following versions have been confirmed to work.
+Please build with "core-image-minimal".
+
+- A) Verified Linux Package (v3.0.2)    
+  Download Link: [RZ/Five Verified Linux Package v3.0.2](https://www.renesas.com/document/sws/rzfive-verified-linux-package-v302rtk0ef0045z0025azj-v302zip)
+
+- B) Yocto Build layer (v3.0.2)     
+GitHub Link: [official RZ/G2 series Yocto Poky BSP based on the CIP kernel(tag:BSP-3.0.2) ](https://github.com/renesas-rz/meta-renesas/tree/BSP-3.0.2)  
 
 
 1. Build Rootfs and Kernel
-   Please refer "Build Instructions".
+
+   Please refer "3.1 Building images to run on the board"(A) or "Build Instructions"(B).
 
    Just before building the BSP, run the following command to add the packages required to run the demo app to `${WORK}/build/conf/local.conf`.
 
@@ -65,7 +73,7 @@ This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to
    note: proprietary graphics and multimedia drivers are not required.
 
 2. Build toolchain
-   Please refer "Build Instructions for SDK". 
+   Please refer "3.2 Building SDK"(A) or "Build Instructions for SDK"(B). 
 
    The resulting SDK installer will be located in `build/tmp/deploy/sdk/`.  
 

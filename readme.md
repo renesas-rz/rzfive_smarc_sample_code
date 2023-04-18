@@ -54,11 +54,11 @@ This section provides a guide to prepare RZ/Five and RZ/G2UL reference boards to
 The following versions have been confirmed to work.
 Please build with "core-image-minimal".
 
-- A) Verified Linux Package (v3.0.2)    
-  Download Link: [RZ/Five Verified Linux Package v3.0.2](https://www.renesas.com/document/sws/rzfive-verified-linux-package-v302rtk0ef0045z0025azj-v302zip)
+- A) Verified Linux Package (v3.0.2-update1)    
+  Download Link: [RZ/Five Verified Linux Package v3.0.2-update1](https://www.renesas.com/us/en/document/sws/rzfive-verified-linux-package-v302-update1?r=11114011)
 
-- B) Yocto Build layer (v3.0.2)     
-GitHub Link: [official RZ/G2 series Yocto Poky BSP based on the CIP kernel(tag:BSP-3.0.2) ](https://github.com/renesas-rz/meta-renesas/tree/BSP-3.0.2)  
+- B) Yocto Build layer (v3.0.2-update1)     
+GitHub Link: [official RZ/G2 series Yocto Poky BSP based on the CIP kernel(tag:BSP-3.0.2-update1) ](https://github.com/renesas-rz/meta-renesas/tree/BSP-3.0.2-update1)  
 
 
 1. Build Rootfs and Kernel
